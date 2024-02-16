@@ -2,3 +2,4 @@ node_modules
 info.log
 error.log
 error.log
+/src/db/config/index.ts
