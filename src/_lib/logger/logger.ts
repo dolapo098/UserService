@@ -48,6 +48,17 @@ if (process.env.NODE_ENV !== "production") {
 //   ],
 // });
 
+
+export class Logger {
+  static info(params: any) {
+    return infoLogger.info(params);
+  }
+
+  static error(params: any) {
+    return errorLogger.error(params);
+  }
+}
+
 export const logger = {
   info: (params) => {
     return infoLogger.info(params);
