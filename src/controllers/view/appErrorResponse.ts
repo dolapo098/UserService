@@ -1,6 +1,6 @@
 import {
   MissingParamtersException,
-  MissingResourceException,
+  UserNotFoundException,
   NotFoundException,
   InternalServerException,
   ValidationException,
@@ -14,19 +14,20 @@ import { ResponseType } from "..";
 export const errorHandler = (error: Error, logger: typeof Logger) => {
   if (error instanceof UniqueConstraintException) {
     logger.error(error.message);
-    throw ResponseType.badRequest(error.message);
+    throw error;
   } else if (error instanceof MissingParamtersException) {
     logger.error(error.message);
-    throw ResponseType.badRequest(error.message);
+    throw error;
   } else if (error instanceof ForbiddenException) {
     logger.error(error.message);
-    throw ResponseType.badRequest(error.message);
-  } else if (error instanceof MissingResourceException) {
+    throw error;
+  } else if (error instanceof UserNotFoundException) {
     logger.error(error.message);
-    throw ResponseType.badRequest(error.message);
+    throw error;
+    // return ResponseType.badRequest(error.message);
   } else if (error instanceof ValidationException) {
     logger.error(error.message);
-    throw ResponseType.badRequest(error.message);
+    throw error;
   } else {
     logger.error(error);
   }

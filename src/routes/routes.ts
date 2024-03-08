@@ -15,3 +15,25 @@ router.post(
 router.get("/test", function (req, res) {
   res.send("GET request to homepage");
 });
+
+router.get(
+  "/get_all_users",
+  httpRequestCallBack(userController.findAllUsers.bind(userController))
+);
+
+router.get(
+  "/get_user_by_id/:id",
+  httpRequestCallBack(userController.findOneUserById.bind(userController))
+);
+
+router.get(
+  "/get_user_by_email/:email",
+  httpRequestCallBack(userController.findOneUserByEmail.bind(userController))
+);
+
+router.get(
+  "/get_user_by_email_password",
+  httpRequestCallBack(
+    userController.findOneUserByEmailPassword.bind(userController)
+  )
+);

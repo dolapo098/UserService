@@ -18,7 +18,7 @@ class DataBaseSync {
     try {
       await this.sequelize.authenticate();
       this.logger.info("Connection has been established successfully.");
-      await sequelize.sync({ force: true });
+      await sequelize.sync({ alter: true });
       // await sequelize.sync({ alter: true })
     } catch (error) {
       this.logger.error(`Unable to connect to the database ${error.message}`);

@@ -3,11 +3,12 @@ import { User } from "../_db/models";
 // import { User } from "../../_db/models";
 
 export class UserObj {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
+  id?: number;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phoneNumber?: string;
+  password?: string;
 
   constructor() {}
 
@@ -17,6 +18,7 @@ export class UserObj {
     this.lastName = userDto.lastName;
     this.email = userDto.email;
     this.phoneNumber = userDto.phoneNumber;
+    this.password = userDto.password;
   }
 
   mapDomainObjToUser(dbObj: User): void {

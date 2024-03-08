@@ -1,8 +1,8 @@
-import { HttpJsonResponse} from '../../_entities'
+import { HttpJsonResponse } from "../../_entities";
 
 export class ResponseType {
   //static method for Json responses used by the controller
-  static responseIsJson(data: any):HttpJsonResponse {
+  static responseIsJson(data: any): HttpJsonResponse {
     return {
       headers: {
         "Content-Type": "application/json",
@@ -16,15 +16,15 @@ export class ResponseType {
   }
 
   //static response for http 400 error code bad requests used by the controller
-  static badRequest(err) {
+  static badRequest(err: any): HttpJsonResponse {
     return {
       headers: {
         "Content-Type": "application/json",
       },
       statusCode: 400,
-      data: {
+      body: {
         code: "99",
-        msg: err.message,
+        data: err.message,
       },
     };
   }

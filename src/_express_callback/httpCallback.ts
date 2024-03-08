@@ -29,7 +29,9 @@ export function httpRequestCallBack(controller: any) {
       }
     } catch (err) {
       //response sent to the client based on an error type thrown in the application
-      res.status(err.statusCode).send(err.data);
+      res
+        .status(err.statusCode)
+        .json({ error: err.name, message: err.message });
     }
   };
 }

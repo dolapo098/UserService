@@ -15,7 +15,7 @@ export type HttpJsonResponse = {
   };
   statusCode: number;
   body: {
-    code: "00";
+    code: string;
     data: any;
   };
 };
